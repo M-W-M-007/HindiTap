@@ -119,7 +119,7 @@
             android:layout_marginTop="4dp"
             android:alpha="0.65"
             android:lineSpacingMultiplier="1.3"
-            android:text="TOI / HT e-paper image hoti hai — text select hi nahi hota. Yeh mode screen padhta hai.\n\nChalu karne par ek floating bubble aayega. E-paper kholein → bubble tap karein → paragraph ke upar box banayein → Hindi translation neeche aa jayegi. E-paper band nahi hogi.\n\nDo permission maangi jayengi: \"Display over other apps\" aur screen capture." />
+            android:text="TOI / HT e-paper image hoti hai — text select hi nahi hota. Yeh mode screen padhta hai.\n\nChalu karne par ek floating bubble aayega. E-paper kholein → bubble tap karein → paragraph ke upar box banayein → Hindi translation neeche aa jayegi. E-paper band nahi hogi.\n\nDo permission maangi jayengi: &quot;Display over other apps&quot; aur screen capture." />
 
         <TextView
             android:id="@+id/bubbleStatus"
@@ -159,7 +159,7 @@
             android:layout_marginTop="4dp"
             android:alpha="0.65"
             android:lineSpacingMultiplier="1.3"
-            android:text="Browser, notes, chat, email: text select karein → popup mein \"हिंदी\" (ya ⋮ ke andar). Kuch setup nahi chahiye.\n\nJin PDF readers ka apna selection menu hota hai (Adobe, Drive): select → Copy → shade kholein → \"हिंदी\" tile." />
+            android:text="Browser, notes, chat, email: text select karein → popup mein &quot;हिंदी&quot; (ya ⋮ ke andar). Kuch setup nahi chahiye.\n\nJin PDF readers ka apna selection menu hota hai (Adobe, Drive): select → Copy → shade kholein → &quot;हिंदी&quot; tile." />
 
         <View
             android:layout_width="match_parent"

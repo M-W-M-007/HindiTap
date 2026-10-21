@@ -11,25 +11,11 @@ android {
         applicationId = "com.waz.hinditap"
         minSdk = 24
         targetSdk = 35
-        versionCode = 2
-        versionName = "1.1"
-    }
-
-    // Fixed debug key, so a new APK installs over the previous one instead of
-    // failing with "package conflicts with an existing package".
-    signingConfigs {
-        getByName("debug") {
-            storeFile = file("debug.keystore")
-            storePassword = "android"
-            keyAlias = "androiddebugkey"
-            keyPassword = "android"
-        }
+        versionCode = 1
+        versionName = "1.0"
     }
 
     buildTypes {
-        debug {
-            signingConfig = signingConfigs.getByName("debug")
-        }
         release {
             isMinifyEnabled = false
         }
