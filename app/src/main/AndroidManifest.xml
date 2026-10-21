@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Floating bubble + result panel drawn over other apps -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- Screen capture, for OCR on image-based PDFs (e-papers) -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.HindiTap">
+
+        <!-- Launcher: setup + model download + manual paste box -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- THE MAIN EVENT: adds "हिंदी" straight into the text selection toolbar.
+             android:label is exactly what shows up next to Copy / Share. -->
+        <activity
+            android:name=".TranslateActivity"
+            android:exported="true"
+            android:label="@string/menu_label"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.HindiTap.Dialog">
+
+            <intent-filter>
+                <action android:name="android.intent.action.PROCESS_TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+
+            <!-- Fallback for apps with a custom selection toolbar (e.g. Adobe Acrobat):
+                 select -> Share -> हिंदी -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+
+        <!-- Screen-capture OCR service: the only thing that works on image-based
+             PDFs (TOI / HT e-papers), where there is no text to select at all. -->
+        <service
+            android:name=".ScreenTranslateService"
+            android:exported="false"
+            android:foregroundServiceType="mediaProjection" />
+
+        <!-- Quick Settings tile: the workflow for PDF readers with a custom
+             selection toolbar. Copy the text, then tap this from the shade. -->
+        <service
+            android:name=".HindiTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_tile_hindi"
+            android:label="@string/menu_label"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+    </application>
+</manifest>

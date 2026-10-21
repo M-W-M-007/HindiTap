@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.HindiTap" parent="Theme.Material3.DayNight.NoActionBar" />
+
+    <!-- Small floating dialog so the PDF stays visible behind the translation -->
+    <style name="Theme.HindiTap.Dialog" parent="Theme.Material3.DayNight.Dialog">
+        <item name="android:windowMinWidthMajor">88%</item>
+        <item name="android:windowMinWidthMinor">88%</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+</resources>
